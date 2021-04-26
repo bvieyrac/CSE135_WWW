@@ -13,7 +13,7 @@ int main(void)
 	<body><h1 align=center>Hello HTML World</h1>\
   	<hr/>\n");
 
- printf("Hello World, Timo & Brandon were here<br/>\n");
+ printf("Hello World, Timo & Bradley were here<br/>\n");
  printf("This program was generated at: %s\n<br/>", ctime(&t));
  printf("Your current IP address is: %s<br/>", getenv("REMOTE_ADDR"));
  
