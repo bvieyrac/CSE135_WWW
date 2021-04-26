@@ -27,4 +27,6 @@ jobs:
           script: |
             cd /var/www/
             git pull
+            cd /var/www/cse135hw1.site/public_html
+            chmod -R a+x cgi-bin
             echo 'Deployment successful to digital ocean'
