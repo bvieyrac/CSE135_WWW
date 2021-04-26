@@ -1,4 +1,4 @@
-#1/usr/bin/python
+#!/usr/bin/python
 
 #Import modules for CGI handling
 import cgi, cgitb
