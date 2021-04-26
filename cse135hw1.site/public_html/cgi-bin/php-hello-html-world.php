@@ -10,6 +10,7 @@ print "<body>";
 
 print "<h1>Timo & Bradley were here - Hello, PHP!</h1>";
 print "<p>This page was generated with PHP</p>";
+print "REMOTE_ADDR";
 
 //$date = localtime();
 //print "<p>Current Time: $date</p>";
