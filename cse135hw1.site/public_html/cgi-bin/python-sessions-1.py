@@ -15,54 +15,35 @@ from http import cookies
 
 ##  Headers - a MUST
 print("Cache-Control: no-cache")
-print("Content-type: text/html\n")
+
+# Get the for value
+form = cgi.FieldStorage()
+username = form.getvalue('username')
+
+# Set cookie through header
+if username:
+    print("Content-type: text/html")
+    print("Set-Cookie: %s\n" %username)
+else:
+    print("Content-type: text/html\n")
+
 
 ## HTML
 print("<html><head><title>Python Sessions</title></head> \
         <body><h1 align=center>Python Sessions Page 1</h1> \
         <hr/>\n")
 
-# Create a session
-form = cgi.FieldStorage()
-username = form.getvalue('username')
 
-c = {}
-
-if 'HTTP_COOKIE' in os.environ:
-    cookie_list = os.environ['HTTP_COOKIE'].split(';')
-    for cookie_string in cookie_list:
-        key, value = cookie_string.split('=')
-        c[key.strip()] = value.strip()
-
-
-name = ''
-if 'username' in c.keys():
-    name = c['username']
-elif username != '':
-    c['username'] = username
-    name = username
-    # new cookie object
-    new_cookie = cookies.SimpleCookie()
-
-    # set cookie
-    random_id = random.randint(0,1000000000) + int(time.time()) 
-    new_cookie['unique_id'] = random_id
-    new_cookie['username'] = username
-    
-    print("Content-type: text/html;charset=utf-8")
-    print(new_cookie)
-    print("\n")
-
-print("name = ", name)
-
-if name != '':
+if username:
     print("<p><b>Name:</b> ", username)
+elif (os.getenv('HTTP_COOKIE') is not None and 'destroyed' not in os.getenv('HTTP_COOKIE')):
+    print('<tr><td>Cookie:</td><td>', os.getenv('HTTP_COOKIE'), '</td></tr>\n')
 else:
     print("<p><b>Name:</b> You do not have a name set</p>")
 
 print("<br/><br/>")
 print("<a href=\"/cgi-bin/python-sessions-2.py\">Session Page 2</a><br/>")
-print("<a href=\"/sessions/python-cgiform.html\">Perl CGI Form</a><br />")
+print("<a href=\"/sessions/python-cgiform.html\">Python CGI Form</a><br />")
 print("<form style=\"margin-top:30px\" action=\"/cgi-bin/python-destroy-session.py\" method=\"get\">")
 print("<button type=\"submit\">Destroy Session</button>")
 print("</form>")
