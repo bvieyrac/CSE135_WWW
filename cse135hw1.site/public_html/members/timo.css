@@ -118,3 +118,11 @@ li {
     font-size: 3rem;
     font-weight: 800;
 }
+
+#testImage {
+    display: none;
+}
+
+#testCSS {
+    display: none;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>ZingGrid for data</title>
+  <!--Script Reference[1]-->
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+  <script>
+    //Get static data
+    fetch('https://www.cse135hw1.site/api/static',{
+                        method: 'GET',
+                        headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authentication': 'Basic ' + btoa('timo' + ":" + 'timo123'),
+                        },
+                        // keepalive: true
+            })
+            .then(response => response.json())
+            .then(sentData => {
+                        console.log("DATA SENT!", sentData);
+                        var testData = sentData;
+                        document.getElementById("static").data = sentData;
+            })
+            .catch(error => {
+                        console.log("Error, data not sent:", error);
+            });
+
+    //Get performance data
+    fetch('https://www.cse135hw1.site/api/performance',{
+                        method: 'GET',
+                        headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authentication': 'Basic ' + btoa('timo' + ":" + 'timo123'),
+                        },
+                        // keepalive: true
+            })
+            .then(response => response.json())
+            .then(sentData => {
+                        console.log("DATA SENT!", sentData);
+                        var testData = sentData;
+                        document.getElementById("performance").data = sentData;
+            })
+            .catch(error => {
+                        console.log("Error, data not sent:", error);
+            });
+    //Get activity data
+    fetch('https://www.cse135hw1.site/api/activity',{
+                        method: 'GET',
+                        headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authentication': 'Basic ' + btoa('timo' + ":" + 'timo123'),
+                        },
+                        // keepalive: true
+            })
+            .then(response => response.json())
+            .then(sentData => {
+                        console.log("DATA SENT!", sentData);
+                        var testData = sentData;
+                        document.getElementById("activity").data = sentData;
+            })
+            .catch(error => {
+                        console.log("Error, data not sent:", error);
+            });
+  </script>
+</head>
+ 
+<body>
+  <!--Grid Component Placement[2]-->
+  <zing-grid id="static" caption="Static Data" sort search pager page-size="3" page-size-options="2,3,6" layout="card" viewport-stop column-resizable-max-width="50" pager-size-card="5"></zing-grid>
+  <zing-grid id="performance" caption="Performance" sort search pager page-size="3" page-size-options="2,3,6" layout="card" viewport-stop></zing-grid>
+  <zing-grid id="activity" caption="Activity" sort search pager page-size="3" page-size-options="2,3,6" layout="card" viewport-stop column-resizable-max-width="50" pager-size-card="5"></zing-grid>
+
+</body>
+ 
+</html>

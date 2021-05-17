@@ -1,0 +1,14 @@
+img {    
+            transition: transform .2s; /* Animation */
+}
+            img:hover {
+            transform: scale(1.5);
+}
+
+#testImage {
+            display: none;
+        }
+        
+#testCSS {
+            display: none;
+}

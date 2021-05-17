@@ -1,25 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/images/favicon.ico" rel="icon" />
   <title>CSE 135 HW</title>
-  <style>
-    b {
-      font-size: 20px;
-    }
-    
-    .sub {
-      background-color: rgb(230, 224, 224);
-      display: flex;
-      justify-content: space-between;
-    }
-
-  </style>
+  <!-- Collector.js -->
+  <script src="./collector.js"></script>
+  <link rel="stylesheet" href="./index.css">
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVS164T79W"></script>
 <script>
@@ -32,6 +21,8 @@
 <!--LOGROCKET-->
 <script src="https://cdn.lr-ingest.io/LogRocket.min.js" crossorigin="anonymous"></script>
 <script>window.LogRocket && window.LogRocket.init('97f4uv/cse135hw1site');</script>
+
+<noscript><img src="./tracker.php" style="display : none;"></noscript>
 </head>
 
 <body>
@@ -41,8 +32,10 @@
   <ul>
     <li><a href="members/bradley.html">Bradley Vieyra-Celaya</a></li>
     <li><a href="members/timo.html">Chiehkun Chen</a></li>
+    <li id="testCSS">Test CSS</li>
   </ul>
 
+  <img id="testImage" src="../images/confused.jpg"/>
   <b>Homework 1</b>
     <ul>
       <li><a href="/hello.php">PHP</a></li>
@@ -110,8 +103,14 @@
     </div>
     
   </div>
-  <b>Analytic App</b>
-  <p class="sub">TBD</p>
+  <b>Homework 1</b>
+    
+  <div class="sub">
+    <ul>
+      <li><a href="/database.html">Database Grid</a></li>
+      <li><a href="/hellodataviz.html">hellodataviz</a></li>
+    </ul>
+  </div>
 
 
 </body>
