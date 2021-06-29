@@ -1,0 +1,68 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+
+{% block title %}The Detailed Report{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" type="text/css" href={% static 'css/metricname.css' %}>{% endblock %}
+{% block script %}
+            <!-- ZingChart CDN -->
+            <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
+           
+{% endblock %}
+
+
+
+{% block name %}
+<div class="top-bar">
+            <h1 class="title">Detailed Report</h1>
+            <p class="logout"><a href="/dashboard">Dashboard</a></p>
+            <p class="logout"><a href="/logout">Logout</a></p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+            <div class="charts">
+                        <!-- web traffic chart -->
+                        <div id="myChart"></div>
+                        <!-- language chart -->
+                        <div id="myChart2"></div>
+            </div>
+
+            <div class="report">
+                        <!-- Report -->
+                        <p><span id="question"><b>Question: How to maximize monetary gain from advertisements while keeping performance in mind?</b></span><br/><br/>
+
+                        For our charts, we decided to look at what the languages of the users were, what the load time for the users were, and the number of page views for the pages on our website.
+                        
+                        Since we want to maximize monetary gain from advertisements, the first thing we must do is know who we are advertising to. 
+                        For the advertisements to be effective, we must present advertisements that users or at least the majority of users can read. 
+                        By collecting data on the number of users that are using a certain language, we can present advertisements in the more present languages. 
+                        This will help to get users to interact with the advertisements, as a user will be more likely to interact with an advertisement that they can read and understand. 
+                        This will give us the opportunity to present advertisements to the majority of our users and help maximize interactions, which will lead to maximum monetary gain.<br/><br/>
+                        
+                        The next problem we wanted to address was the issue of knowing where to place the advertisements. 
+                        Since our goal is to maximize our monetary gain from advertisements, we want to place advertisements where they will be seen and interacted with the most. 
+                        Our solution for this was to collect data on the number of page views for the main pages of our website(Main page, Timo’s page, and Bradley’s page). 
+                        We decided to categorize the number of page views with the months of the year. With this extra information, we have the ability to adapt our website and the placement of the advertisements. 
+                        An example of this would be that if our main page is seeing a high amount of web traffic, then obviously we want to place our advertisements there. 
+                        If in the following month we see that the main page has a small amount of traffic and the traffic is now at Timo’s page, then we would move our advertisements to Timo’s page. 
+                        This is a great way for us to make sure that our advertisements are seen and we maximize our monetary gain.<br/><br/>
+                        
+                        Putting everything together is the issue of performance. 
+                        There is no point in putting advertisements on a website if the user can’t even access the website in the first place. 
+                        We want to make sure that as many users can access the website, so we kept accessibility in mind during this project. 
+                        We gathered data on the load times for users and we sorted them into categories using our own made up metric. 
+                        We sorted using the following metric: if the load time was less than 2000ms, that’s really good, if greater than 2000ms but less than 3000ms, that’s acceptable, and if it is greater than 3000ms, then we have to improve accessibility. 
+                        Of course with any data, there will always be outliers, but if we see a majority or a concerning amount of load times greater than 3000ms, then we know we should improve our sites accessibility. 
+                        Performance ties everything together because we can easily put an absurd amount of ads on all of our pages, but if users are not able to access our website, there will be no monetary gain. 
+                        All the data gathered has its purpose and it all contributes to our main goal of maximizing monetary gain from advertisements, while still maintaining good website performance.<br/><br/></p>
+            </div>
+</div>
+
+
+<!-- scripts for Charts -->
+<script src={% static 'scripts/web_traffic_viz.js' %}></script>
+<script src={% static 'scripts/language_viz.js' %}></script>
+{% endblock %}

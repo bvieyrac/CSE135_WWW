@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+   
+  </head>
+  <body>
+    <h1>Dashboard</h1>
+    <form name="logOut" method="get" action="https://www.reporting.cse135hw1.site/app/logout">
+        <input type="submit" id="logOutBtn" value="Log Out">
+    </form>
+    <br>
+    <a id="adminLink" href="./users">Click here for Users</a>
+    <script>
+      let cookie = document.cookie;
+      console.log(cookie);
+      if(cookie == "IsAdmin=False") document.getElementById("adminLink").style.display = "none";
+    </script>
+  </body>
+</html>

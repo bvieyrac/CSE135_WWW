@@ -120,6 +120,12 @@ const deleteDataWithID = async (reqType, id) => {
 
 app.use(express.json());
 
+// app.all('/', function(req, res, next) {
+//             res.header("Access-Control-Allow-Origin", "*");
+//             res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//             next();
+// });
+
 /* Testings for post & get */
 // app.post('/posts', (req, res) =>{
 //             storeData(curJsonData, req.body, 'posts', db_path);
@@ -133,11 +139,35 @@ app.use(express.json());
 // });
 /* Testing END */
 
+/* OPTIONS */
+// options - need to set this as MOST modern browsers will send OPTIONS request silently
+app.options('/static', (req, res) =>{
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authentication");
+            res.status(200).end();
+});
+
+app.options('/activity', (req, res) =>{
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authentication");
+            res.status(200).end();
+});
+
+app.options('/performance', (req, res) =>{
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authentication");
+            res.status(200).end();
+});
+
 /* STATIC DATA */
 // post
 app.post('/static', (req, res) =>{
+
+            console.log(req.body);
+
             var requestType = 'static';
             const postedData = storeDataMongo(req.body, requestType);
+
             res.status(200).json(postedData);
 });
 
@@ -148,6 +178,9 @@ app.get('/static', async (req, res) => {
             // var staticData = getData(curJsonData, requestType);
             /* MongoDB */
             var staticData = await getDataMongo(requestType);
+
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authentication");
 
             res.status(200).json(JSON.stringify(staticData, null, 4));
 });
@@ -194,6 +227,9 @@ app.get('/performance', async (req, res) => {
             /* MongoDB */
             var performanceData = await getDataMongo(requestType);
 
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authentication");
+
             res.status(200).json(JSON.stringify(performanceData, null, 4));
 });
 
@@ -238,6 +274,10 @@ app.get('/activity', async (req, res) => {
             // var activityData = getData(curJsonData, requestType);
             /* MongoDB */
             var activityData = await getDataMongo(requestType);
+
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authentication");
+
             res.status(200).json(JSON.stringify(activityData, null, 4));
 });
 

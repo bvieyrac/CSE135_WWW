@@ -1,0 +1,93 @@
+.title {
+            /* flex: 2; */
+}
+
+.logout {
+            /* flex: 2; */
+            font-size: 1.2rem;
+}
+
+.top-bar {
+            /* height: 200px; */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-end;
+            border-bottom: 1.5px solid black;
+            margin: 20px 20px;
+}
+
+/* Bar Chart */
+html,
+body,
+#myChart,
+#myChart2{
+  width: 100%;
+  height: 150rem;
+  
+}
+
+.content {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 10rem;
+}
+
+#myChart,
+#myChart2{
+  width: 100%;
+  height: 70%;
+}
+
+
+#myChart {
+  /* height: 1400px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15rem;
+}
+
+#myChart2 {
+  /* height: 1400px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15rem;
+}
+
+.charts {
+  /* background-color: cyan; */
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.report {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(211,211,211);
+            padding: 50px 40px 50px 40px;
+}
+
+.report p {
+            font-size: 2rem;
+}
+
+#question {
+            font-size: 2.5rem;
+}
+
+.zc-ref {
+  display: none;
+}

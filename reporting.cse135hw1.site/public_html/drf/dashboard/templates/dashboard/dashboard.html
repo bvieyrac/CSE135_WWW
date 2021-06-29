@@ -1,0 +1,41 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+
+{% block title %}The Dashboard{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" type="text/css" href={% static 'css/dashboard.css' %}>{% endblock %}
+{% block script %}
+            <!-- ZingChart CDN -->
+            <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
+           
+{% endblock %}
+
+
+
+{% block name %}
+<div class="top-bar">
+            <h1 class="title">DASHBOARD</h1>
+            {% if request.user.is_superuser %}
+            <p class="manage"><a href="/admin">User Management Page</a></p>
+            {% endif %}
+            <p class="logout"><a href="/dashboard/metricname">Detailed Report</a></p>
+            <p class="logout"><a href="/logout">Logout</a></p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="charts">
+            <!-- web traffic chart -->
+            <div id="myChart"></div>
+            <!-- language chart -->
+            <div id="myChart2"></div>
+            <!-- Load Time chart -->
+            <div id="myChart3"></div>
+</div>
+
+<!-- scripts for Charts -->
+<script src={% static 'scripts/web_traffic_viz.js' %}></script>
+<script src={% static 'scripts/language_viz.js' %}></script>
+<script src={% static 'scripts/load_time_viz.js' %}></script>
+{% endblock %}
